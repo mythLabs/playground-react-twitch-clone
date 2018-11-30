@@ -1,5 +1,6 @@
 # Playground-ract-twitch-clone
-  A twitch clone with focus on react-redux concepts.
+
+A twitch clone with stream CRUD functionality and Google OAuth as authentication provider.
 
 ## How to use
 
