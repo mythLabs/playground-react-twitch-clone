@@ -1,5 +1,8 @@
 import React from "react";
 import { Field, reduxForm } from "redux-form";
+import { createStream } from "../../actions";
+import { connect } from "react-redux";
+import { compose } from "redux";
 
 class StreamCreate extends React.Component {
   renderError({ error, touched }) {
@@ -13,7 +16,7 @@ class StreamCreate extends React.Component {
   }
 
   renderInput = ({ input, label, meta }) => {
-    const className = `field ${meta.error && meta.touched ? 'error':''} `
+    const className = `field ${meta.error && meta.touched ? "error" : ""} `;
     return (
       <div className={className}>
         <label>{label}</label>
@@ -24,7 +27,7 @@ class StreamCreate extends React.Component {
   };
 
   onsubmit = formValues => {
-    console.log(formValues);
+    this.props.createStream(formValues);
   };
 
   render() {
@@ -59,7 +62,19 @@ const validate = formValues => {
   return errors;
 };
 
-export default reduxForm({
-  validate,
-  form: "streamCreate"
-})(StreamCreate);
+// Connect + redux from without compose
+// const fromWrapped = reduxForm({
+//   validate,
+//   form: "streamCreate"
+// })(StreamCreate);
+
+// export default connect(null,{createStream})(fromWrapped);
+
+// Connect + redux from with compose
+export default compose(
+  connect(
+    null,
+    { createStream }
+  ),
+  reduxForm({ validate, form: "streamCreate" })
+)(StreamCreate);
