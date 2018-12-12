@@ -1,4 +1,4 @@
-# Playground-ract-twitch-clone
+# Playground-react-twitch-clone
 
 A twitch clone with stream CRUD functionality, Google OAuth as authentication provider and an RTMP server to view a real-time stream.
 
