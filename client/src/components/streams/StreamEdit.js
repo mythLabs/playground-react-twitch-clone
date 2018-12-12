@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { fetchStream, updateStream } from "../../actions";
+import { fetchStream } from "../../actions";
 import StreamForm from './StreamForm';
 import _ from 'lodash';
 
@@ -33,5 +33,5 @@ const mapStateToProps = (state, ownProps) => {
 
 export default connect(
   mapStateToProps,
-  { fetchStream,updateStream }
+  { fetchStream }
 )(StreamEdit);
